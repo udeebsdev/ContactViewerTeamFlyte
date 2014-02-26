@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ContactViewer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- activity_main -->
+    <string name="alias_label">Alias</string>
+    <string name="contact">John Doe</string>
+    <string name="contact_header">John Doe</string>
+    <string name="business_label">BUSINESS</string>
+    <string name="business">ABC Organization</string>
+    <string name="phone_label">PHONE</string>
+    <string name="phone">555-555-5555</string>
+    <string name="email_label">EMAIL</string>
+    <string name="email">name@email.com</string>
+    <string name="address_label">ADDRESS</string>
+    <string name="address">123 Paradise City, Heaven, 12300</string>
+    <string name="url_label">URL</string>
+    <string name="url">http://www.johndoe.example</string>
+    <string name="im_label">IM HANDLE</string>
+    <string name="im">JohnDeDoe (Skype)</string>
+    <string name="dob_label">DOB</string>
+    <string name="dob">Jan 1 1987</string>
+    <string name="groups_label">GROUPS</string>
+    <string name="groups">Soccer, Theater</string>
+    <string name="ringtone">Default</string>
+    <string name="ringtone_label">RINGTONE</string>
+    <string name="title_activity_edit_contact">Edit Contact</string>
+    <string name="firstname">John</string>
+    <string name="lastname">Doe</string>
+    <string name="firstname_label">First Name</string>
+    <string name="lastname_label">Last Name</string>
+    <string name="alias">Johny</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="email_hint">Ex: johndoe@abc.com</string>
+    <string name="business_hint">Ex: ABC Organization</string>
+    <string name="alias_hint">Ex: Jonny</string>
+    <string name="lastname_hint">Lastname</string>
+    <string name="firstname_hint">Firstname</string>
+    <string name="city_hint">City</string>
+    <string name="zip_hint">Zip Code</string>
+    <string name="url_hint">Ex: http://www.example.url</string>
+    <string name="im_hint">Ex: Skype, Gmail, MSN etc.</string>
+    <string name="dob_hint">Date of Birth</string>
+    <string name="groups_hint">Ex: Soccer, Bookclub</string>
+
+    <string-array name="phone_options">
+        <item>Home</item>
+        <item>Business</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="email_type">
+        <item>Personal</item>
+        <item>Business</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="address_type">
+        <item>Personal</item>
+        <item>Business</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="states">
+        <item>MN</item>
+        <item>WI</item>
+    </string-array>
+    <string-array name="url_type">
+        <item>Personal</item>
+        <item>Business</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="im_type">
+        <item>MSN</item>
+        <item>Gmail</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>Viber</item>
+        <item>WhatsApp</item>
+    </string-array>
+    <string-array name="ringtone_type">
+        <item>Mozart</item>
+        <item>Beethoven</item>
+        <item>Default</item>
+        <item>Ring Ring</item>
+        <item>Alien</item>
+        <item>Basso</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string name="title_activity_details">DetailsActivity</string>
+
+</resources>
