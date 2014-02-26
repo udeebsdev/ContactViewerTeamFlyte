@@ -92,7 +92,20 @@ public class MainActivity extends ListActivity {
         }
         else
         {
-            Contact c1= new Contact("Howard", "Soft. Eng.",new HashMap<String, String>(){{put("home","555-555-1234");}});
+            Contact c1= new Contact("John Smith", "Soft. Eng.",new HashMap<String, String>(){{put("home","555-555-1234");}});
+            c1.setAlias("Johnie");
+            c1.setAddresses(new HashMap<String, Address>() {{
+                put("home", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
+            }});
+            c1.setEmail(new HashMap<String, String>() {{
+                put("personal", "abc@gmail.com");
+                put("office", "def@msn.com");
+            }});
+            c1.setHandle(new HashMap<String, String>() {{
+                put("twitter", "@twitterguy");
+                put("msn", "@msnguy");
+            }});
+            c1.setUrl(new HashMap<String, String>(){{put("personal","facebook.com/abc");}});
             Contact c2= new Contact("Tim", "Sr. Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-3456");}});
             Contact c3 = new Contact("Matt", "Lead Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-5678");}});
             return new Contact[]{c1,c2,c3};
