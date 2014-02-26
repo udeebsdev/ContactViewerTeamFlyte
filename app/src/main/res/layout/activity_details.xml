@@ -26,12 +26,18 @@
                 android:text="@string/contact_header"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:id="@+id/edit_button"
-                android:layout_width="match_parent"
+            
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:text="Edit"
+                android:id="@+id/editButton"
+                android:onClick="editClicked"
+                android:layout_gravity="right"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@id/header"
                 />
+
             <ImageView
                 android:id="@+id/contact_image"
                 android:layout_width="200dp"

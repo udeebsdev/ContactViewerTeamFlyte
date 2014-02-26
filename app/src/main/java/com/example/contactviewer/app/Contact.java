@@ -14,27 +14,26 @@ public class Contact implements Serializable{
     String name;
     String business;
     String alias;
-    Map<String, String> phone;
-    Map<String, Address> addresses;
-    Map<String, String> handle;
-    Map<String, String> email;
-    Map<String, String> url;
+    /*HashMap<String, String> phone;
+    HashMap<String, Address> addresses;
+    HashMap<String, String> handle;
+    HashMap<String, String> email;
+    HashMap<String, String> url;*/
     List<String> groups;
     Date dob;
     String filename;
     String ringtone;
 
-    public Contact(String name, String business, Map<String, String> phone){
+    public Contact(String name, String business){
         this.name = name;
         this.business = business;
-        this.phone = phone;
     }
 
     public static Contact[] dummyData(){
         return new Contact[]{
-                new Contact("Howard", "Soft. Eng.",new HashMap<String, String>(){{put("home","555-555-1234");}}),
-                new Contact("Tim", "Sr. Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-3456");}}),
-                new Contact("Matt", "Lead Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-5678");}})};
+                new Contact("Howard", "Soft. Eng."),
+                new Contact("Tim", "Sr. Soft. Eng."),
+                new Contact("Matt", "Lead Soft. Eng.")};
     }
     public String getName() {
         return name;
@@ -60,45 +59,45 @@ public class Contact implements Serializable{
         this.alias = alias;
     }
 
-    public Map<String, String> getPhone() {
+  /*  public HashMap<String, String> getPhone() {
         return phone;
     }
 
-    public void setPhone(Map<String, String> phone) {
+    public void setPhone(HashMap<String, String> phone) {
         this.phone = phone;
     }
 
-    public Map<String, Address> getAddresses() {
+   public HashMap<String, Address> getAddresses() {
         return addresses;
     }
 
-    public void setAddresses(Map<String, Address> addresses) {
+    public void setAddresses(HashMap<String, Address> addresses) {
         this.addresses = addresses;
     }
 
-    public Map<String, String> getHandle() {
+    public HashMap<String, String> getHandle() {
         return handle;
     }
 
-    public void setHandle(Map<String, String> handle) {
+    public void setHandle(HashMap<String, String> handle) {
         this.handle = handle;
     }
 
-    public Map<String, String> getEmail() {
+    public HashMap<String, String> getEmail() {
         return email;
     }
 
-    public void setEmail(Map<String, String> email) {
+    public void setEmail(HashMap<String, String> email) {
         this.email = email;
     }
 
-    public Map<String, String> getUrl() {
+    public HashMap<String, String> getUrl() {
         return url;
     }
 
-    public void setUrl(Map<String, String> url) {
+    public void setUrl(HashMap<String, String> url) {
         this.url = url;
-    }
+    }*/
 
     public List<String> getGroups() {
         return groups;

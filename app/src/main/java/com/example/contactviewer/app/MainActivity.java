@@ -76,8 +76,8 @@ public class MainActivity extends ListActivity {
             TextView titleView = (TextView)rootView.findViewById(R.id.contact_item_title);
             titleView.setText(contact.business);
 
-            TextView phoneView = (TextView)rootView.findViewById(R.id.contact_item_phone);
-            phoneView.setText(contact.getPhone().get("home"));
+            //TextView phoneView = (TextView)rootView.findViewById(R.id.contact_item_phone);
+           // phoneView.setText(contact.getPhone().get("home"));
 
             return rootView;
         }
@@ -92,8 +92,11 @@ public class MainActivity extends ListActivity {
         }
         else
         {
-            Contact c1= new Contact("John Smith", "Soft. Eng.",new HashMap<String, String>(){{put("home","555-555-1234");}});
+            Contact c1= new Contact("John Smith", "Soft. Eng.");
             c1.setAlias("Johnie");
+            /*c1.setPhone(new HashMap<String, String>() {{
+                put("home", "555-555-1234");
+            }});
             c1.setAddresses(new HashMap<String, Address>() {{
                 put("home", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
             }});
@@ -105,9 +108,10 @@ public class MainActivity extends ListActivity {
                 put("twitter", "@twitterguy");
                 put("msn", "@msnguy");
             }});
-            c1.setUrl(new HashMap<String, String>(){{put("personal","facebook.com/abc");}});
-            Contact c2= new Contact("Tim", "Sr. Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-3456");}});
-            Contact c3 = new Contact("Matt", "Lead Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-5678");}});
+            c1.setUrl(new HashMap<String, String>(){{put("personal","facebook.com/abc");}});*/
+
+            Contact c2= new Contact("Tim", "Sr. Soft. Eng.");
+            Contact c3 = new Contact("Matt", "Lead Soft. Eng.");
             return new Contact[]{c1,c2,c3};
         }
     }

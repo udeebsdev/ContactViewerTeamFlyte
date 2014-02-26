@@ -1,10 +1,12 @@
 package com.example.contactviewer.app;
 
+import java.io.Serializable;
+
 /**
  * Created by udeebsdev on 2/25/14.
  */
 
-public class Address{
+public class Address implements Serializable {
     String street;
     String city;
     String state;

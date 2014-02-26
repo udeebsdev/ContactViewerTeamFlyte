@@ -1,9 +1,11 @@
 package com.example.contactviewer.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class DetailsActivity extends Activity {
@@ -15,9 +17,47 @@ public class DetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        TextView textview = (TextView)this.findViewById(R.id.header);
         this.currentContact = (Contact) getIntent().getSerializableExtra("contact");
-        textview.setText(currentContact.name);
+
+        this.renderContactDetails();
     }
 
+    public void renderContactDetails(){
+        TextView headerView = (TextView)this.findViewById(R.id.header);
+        headerView.setText(this.currentContact.name);
+
+        TextView nameView = (TextView)this.findViewById(R.id.contact_name);
+        nameView.setText(this.currentContact.name);
+
+        /*TextView phoneView = (TextView)this.findViewById(R.id.phone_view);
+        phoneView.setText(this.currentContact.getPhone().get("home"));
+
+        TextView emailView = (TextView)this.findViewById(R.id.email_view);
+        emailView.setText(this.currentContact.getEmail().get("personal"));*/
+    }
+
+    public void  editClicked(View view){
+        View rootView = view;
+
+        if(rootView == null){
+            rootView = getLayoutInflater().inflate(R.layout.activity_details,null);
+        }
+
+        Intent intent = new Intent(this, EditContactActivity.class);
+        intent.putExtra("contact", this.currentContact);
+        startActivityForResult(intent, 1);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+
+            if(resultCode == RESULT_OK){
+                this.currentContact = (Contact) data.getSerializableExtra("contact");
+                this.renderContactDetails();
+
+                setResult(RESULT_OK, data);
+            }
+        }
+    }
 }
