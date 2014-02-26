@@ -13,19 +13,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 public class MainActivity extends ListActivity {
 
-    Contact[] contactData = new Contact[]{
-            new Contact("Howard", "Soft. Eng.", "howard@howard.com", "555-1234"),
-            new Contact("Tim", "Sr. Soft. Eng.", "Tim@Tim.com", "555-1234"),
-            new Contact("Matt", "Lead Soft. Eng.", "Matt@Matt.com", "555-1234")
-    };
+    Contact[] contactData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setListAdapter(new ContactAdapter(this, R.layout.contact_item, contactData));
+        setListAdapter(new ContactAdapter(this, R.layout.contact_item, this.getContactData()));
     }
 
     @Override
@@ -76,14 +74,29 @@ public class MainActivity extends ListActivity {
             nameView.setText(contact.name);
 
             TextView titleView = (TextView)rootView.findViewById(R.id.contact_item_title);
-            titleView.setText(contact.title);
+            titleView.setText(contact.business);
 
             TextView phoneView = (TextView)rootView.findViewById(R.id.contact_item_phone);
-            phoneView.setText(contact.phone);
+            phoneView.setText(contact.getPhone().get("home"));
 
             return rootView;
         }
 
+    }
+
+    public Contact[] getContactData()
+    {
+        if(contactData!=null)
+        {
+           return contactData;
+        }
+        else
+        {
+            Contact c1= new Contact("Howard", "Soft. Eng.",new HashMap<String, String>(){{put("home","555-555-1234");}});
+            Contact c2= new Contact("Tim", "Sr. Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-3456");}});
+            Contact c3 = new Contact("Matt", "Lead Soft. Eng.", new HashMap<String, String>(){{put("home","555-555-5678");}});
+            return new Contact[]{c1,c2,c3};
+        }
     }
 
 }
