@@ -39,7 +39,7 @@
     <string name="business_hint">Ex: ABC Organization</string>
     <string name="alias_hint">Ex: Jonny</string>
     <string name="lastname_hint">Lastname</string>
-    <string name="firstname_hint">Firstname</string>
+    <string name="firstname_hint">Name</string>
     <string name="city_hint">City</string>
     <string name="zip_hint">Zip Code</string>
     <string name="url_hint">Ex: http://www.example.url</string>

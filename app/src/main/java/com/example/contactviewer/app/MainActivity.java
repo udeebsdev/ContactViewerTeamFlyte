@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class MainActivity extends ListActivity {
@@ -36,15 +37,13 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 0) {
-            if(resultCode == RESULT_OK){
+            if (resultCode == RESULT_OK) {
                 List<Contact> contacts = ContactRepository.getContacts(getApplicationContext());
                 setListAdapter(new ContactAdapter(this, R.layout.contact_item, contacts));
             }
-            if (resultCode == RESULT_CANCELED) {
-                // do something here
-            }
         }
     }
+
     class ContactAdapter extends ArrayAdapter<Contact> {
 
         public ContactAdapter(Context context, int resource, List<Contact> objects) {
@@ -55,20 +54,26 @@ public class MainActivity extends ListActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View rootView = convertView;
 
-            if(rootView == null){
+            if (rootView == null) {
                 rootView = getLayoutInflater().inflate(R.layout.contact_item, parent, false);
             }
 
             Contact contact = getItem(position);
 
-            TextView nameView = (TextView)rootView.findViewById(R.id.contact_item_name);
+            TextView nameView = (TextView) rootView.findViewById(R.id.contact_item_name);
             nameView.setText(contact.name);
 
-            TextView titleView = (TextView)rootView.findViewById(R.id.contact_item_title);
+            TextView titleView = (TextView) rootView.findViewById(R.id.contact_item_title);
             titleView.setText(contact.business);
 
-            //TextView phoneView = (TextView)rootView.findViewById(R.id.contact_item_phone);
-           // phoneView.setText(contact.getPhone().get("home"));
+            TextView phoneView = (TextView) rootView.findViewById(R.id.contact_item_phone);
+
+            if (contact.getPhone() != null) {
+                Iterator<String> itr = contact.getPhone().keySet().iterator();
+                if (itr.hasNext()) {
+                    phoneView.setText(contact.getPhone().get(itr.next()));
+                }
+            }
 
             return rootView;
         }

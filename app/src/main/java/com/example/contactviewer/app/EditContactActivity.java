@@ -7,7 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class EditContactActivity extends Activity {
@@ -29,6 +32,12 @@ public class EditContactActivity extends Activity {
     public void renderEditContactView(Contact currentContact){
         EditText editText = (EditText) this.findViewById(R.id.firstname);
         editText.setText(currentContact.name);
+
+        EditText aliasText = (EditText) this.findViewById(R.id.alias);
+        aliasText.setText(currentContact.alias);
+
+        EditText businessText = (EditText) this.findViewById(R.id.business_edit);
+        businessText.setText(currentContact.business);
     }
 
     public void saveClicked(View currView){
@@ -46,8 +55,15 @@ public class EditContactActivity extends Activity {
     }
 
     private void getUpdatedContactInfo(Contact currentContact){
+
         EditText editText = (EditText) this.findViewById(R.id.firstname);
         currentContact.setName(editText.getText().toString());
+
+        EditText aliasText = (EditText) this.findViewById(R.id.alias);
+        currentContact.setAlias(aliasText.getText().toString());
+
+        EditText businessText = (EditText) this.findViewById(R.id.business_edit);
+        currentContact.setBusiness(businessText.getText().toString());
 
     }
 
@@ -56,26 +72,6 @@ public class EditContactActivity extends Activity {
         getIntent().putExtra("contact", currentContact);
         setResult(RESULT_CANCELED, getIntent());
         finish();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.edit_contact, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }

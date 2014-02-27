@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Iterator;
+
 public class DetailsActivity extends Activity {
 
     private Contact currentContact;
@@ -29,19 +31,46 @@ public class DetailsActivity extends Activity {
         TextView nameView = (TextView)this.findViewById(R.id.contact_name);
         nameView.setText(this.currentContact.name);
 
-        /*TextView phoneView = (TextView)this.findViewById(R.id.phone_view);
-        phoneView.setText(this.currentContact.getPhone().get("home"));
+        TextView aliasView = (TextView)this.findViewById(R.id.alias_label);
+        aliasView.setText(this.currentContact.alias);
 
-        TextView emailView = (TextView)this.findViewById(R.id.email_view);
-        emailView.setText(this.currentContact.getEmail().get("personal"));*/
+        TextView businessView = (TextView)this.findViewById(R.id.business_view);
+        businessView.setText(this.currentContact.business);
+
+        if (this.currentContact.getPhone() != null) {
+            Iterator<String> itr = this.currentContact.getPhone().keySet().iterator();
+            if (itr.hasNext()) {
+                String key = itr.next();
+                TextView phoneView = (TextView)this.findViewById(R.id.phone_view);
+                phoneView.setText(String.format("%s (%s)", this.currentContact.getPhone().get(key), key));
+            }
+        }
+
+        if (this.currentContact.getEmail() != null) {
+            Iterator<String> itr = this.currentContact.getEmail().keySet().iterator();
+            if (itr.hasNext()) {
+                String key = itr.next();
+                TextView emailView = (TextView)this.findViewById(R.id.email_view);
+                emailView.setText(String.format("%s (%s)",this.currentContact.getEmail().get(key), key));
+            }
+        } 
+        if (this.currentContact.getAddresses() != null) {
+            Iterator<String> itr = this.currentContact.getAddresses().keySet().iterator();
+            if (itr.hasNext()) {
+                String key = itr.next();
+                TextView addressView = (TextView)this.findViewById(R.id.address_view);
+                Address address =this.currentContact.getAddresses().get(key);
+                addressView.setText(String.format("%s %s %s %s",address.getStreet(), address.getCity(), address.getState(), address.getZip()));
+            }
+        }
     }
 
-    public void  editClicked(View view){
-        View rootView = view;
-
-        if(rootView == null){
-            rootView = getLayoutInflater().inflate(R.layout.activity_details,null);
-        }
+    public void editClicked(View view){
+//        View rootView = view;
+//
+//        if(rootView == null){
+//            rootView = getLayoutInflater().inflate(R.layout.activity_details,null);
+//        }
 
         Intent intent = new Intent(this, EditContactActivity.class);
         intent.putExtra("contact", this.currentContact);

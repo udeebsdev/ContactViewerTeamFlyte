@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/contact_image"
                 android:layout_alignTop="@id/contact_image"
-                android:text="@string/firstname_label"
+                android:text="Name"
                 />
             <EditText
                 android:id="@+id/firstname"
@@ -83,32 +83,14 @@
                 android:layout_below="@id/firstname_label_view"
                 android:layout_toRightOf="@id/contact_image"
                 android:text="@string/firstname"
-                android:hint="@string/firstname_hint"
-                />
-            <TextView
-                android:id="@+id/lastname_label_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/contact_image"
-                android:layout_below="@id/firstname"
-                android:text="@string/lastname_label"
-                android:layout_marginTop="10dp"
-                />
-            <EditText
-                android:id="@+id/lastname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lastname_label_view"
-                android:layout_toRightOf="@id/contact_image"
-                android:text="@string/lastname"
-                android:hint="@string/lastname_hint"
+                android:hint="Name"
                 />
             <TextView
                 android:id="@+id/alias_label_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/contact_image"
-                android:layout_below="@id/lastname"
+                android:layout_below="@id/firstname"
                 android:text="@string/alias_label"
                 android:layout_marginTop="10dp"
                 />
