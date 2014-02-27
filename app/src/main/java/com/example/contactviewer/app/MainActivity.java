@@ -48,7 +48,7 @@ public class MainActivity extends ListActivity {
                 setListAdapter(new ContactAdapter(this, R.layout.contact_item, contactData));
             }
             if (resultCode == RESULT_CANCELED) {
-
+                // do something here
             }
         }
     }
