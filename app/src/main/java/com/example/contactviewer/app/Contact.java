@@ -2,15 +2,16 @@ package com.example.contactviewer.app;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Contact implements Serializable, Comparable<Contact> {
     String name;
     String business;
     String alias;
-    /*HashMap<String, String> phone;
+    /*HashMap<String, String> phone; */
     HashMap<String, Address> addresses;
-    HashMap<String, String> handle;
+    /* HashMap<String, String> handle;
     HashMap<String, String> email;
     HashMap<String, String> url;*/
     List<String> groups;
@@ -23,12 +24,6 @@ public class Contact implements Serializable, Comparable<Contact> {
         this.business = business;
     }
 
-    public static Contact[] dummyData(){
-        return new Contact[]{
-                new Contact("Howard", "Soft. Eng."),
-                new Contact("Tim", "Sr. Soft. Eng."),
-                new Contact("Matthew", "Lead Soft. Eng.")};
-    }
     public String getName() {
         return name;
     }
@@ -59,7 +54,7 @@ public class Contact implements Serializable, Comparable<Contact> {
 
     public void setPhone(HashMap<String, String> phone) {
         this.phone = phone;
-    }
+    }*/
 
    public HashMap<String, Address> getAddresses() {
         return addresses;
@@ -69,7 +64,7 @@ public class Contact implements Serializable, Comparable<Contact> {
         this.addresses = addresses;
     }
 
-    public HashMap<String, String> getHandle() {
+    /*public HashMap<String, String> getHandle() {
         return handle;
     }
 
