@@ -3,14 +3,13 @@ package com.example.contactviewer.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 public class DetailsActivity extends Activity {
 
-    Contact currentContact;
+    private Contact currentContact;
+    private Integer position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +17,7 @@ public class DetailsActivity extends Activity {
         setContentView(R.layout.activity_details);
 
         this.currentContact = (Contact) getIntent().getSerializableExtra("contact");
+        this.position = (Integer) getIntent().getSerializableExtra("position");
 
         this.renderContactDetails();
     }
@@ -45,6 +45,7 @@ public class DetailsActivity extends Activity {
 
         Intent intent = new Intent(this, EditContactActivity.class);
         intent.putExtra("contact", this.currentContact);
+        intent.putExtra("position", this.position);
         startActivityForResult(intent, 1);
     }
 
@@ -54,6 +55,7 @@ public class DetailsActivity extends Activity {
 
             if(resultCode == RESULT_OK){
                 this.currentContact = (Contact) data.getSerializableExtra("contact");
+                this.position = (Integer) data.getSerializableExtra("position");
                 this.renderContactDetails();
 
                 setResult(RESULT_OK, data);

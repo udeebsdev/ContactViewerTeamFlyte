@@ -8,7 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.List;
+
 public class EditContactActivity extends Activity {
+    private Integer position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,7 @@ public class EditContactActivity extends Activity {
 
         Intent currentIntent = getIntent();
         Contact currentContact = (Contact) currentIntent.getSerializableExtra("contact");
+        position = (Integer) currentIntent.getSerializableExtra("position");
 
         this.renderEditContactView(currentContact);
 
@@ -31,6 +35,10 @@ public class EditContactActivity extends Activity {
         Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
 
         this.getUpdatedContactInfo(currentContact);
+
+        List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
+        contactList.set(position, currentContact);
+        ContactRepository.saveContacts(getApplicationContext());
 
         getIntent().putExtra("contact", currentContact);
         setResult(RESULT_OK, getIntent());

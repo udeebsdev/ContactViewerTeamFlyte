@@ -2,15 +2,9 @@ package com.example.contactviewer.app;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-/**
- * Created by udeebsdev on 2/14/14.
- */
-public class Contact implements Serializable{
-
+public class Contact implements Serializable, Comparable<Contact> {
     String name;
     String business;
     String alias;
@@ -131,5 +125,20 @@ public class Contact implements Serializable{
         this.ringtone = ringtone;
     }
 
+    @Override
+    public int compareTo(Contact contact) {
+        if (name == null && contact.name == null) {
+            return 0;
+        }
 
+        if (name == null) {
+            return -1;
+        }
+
+        if (contact.name == null) {
+            return 1;
+        }
+
+        return name.compareTo(contact.name);
+    }
 }
