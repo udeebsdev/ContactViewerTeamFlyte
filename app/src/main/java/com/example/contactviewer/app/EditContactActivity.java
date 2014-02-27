@@ -62,7 +62,7 @@ public class EditContactActivity extends Activity {
         finish();
     }
 
-    public void deleteClicked(View view){
+    public void deleteClicked(View view) {
         Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
 
         List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());

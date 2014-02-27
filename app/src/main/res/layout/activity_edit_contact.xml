@@ -29,27 +29,28 @@
                 android:layout_marginBottom="8dp"
                 android:onClick="backToDetailsClicked"
                 />
-            <Button
-                android:id="@+id/del_button"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:onClick="deleteClicked"
-                android:layout_weight="1"
-                />
+
             <Button
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Save"
                 android:id="@+id/save_button"
-                android:layout_toLeftOf="@id/del_button"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:onClick="saveClicked"
                 />
 
+            <Button
+                android:id="@+id/del_button"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_toLeftOf="@id/save_button"
+                android:onClick="deleteClicked"
+                android:layout_weight="1"
+                />
 
             <TextView
                 android:id="@+id/header"

@@ -19,13 +19,13 @@ public class AddContactActivity extends Activity {
 
     }
 
-    public void renderEditContactView(){
+    public void renderEditContactView() {
         Button delButton = (Button) this.findViewById(R.id.del_button);
-        delButton.setVisibility(0);
+        delButton.setVisibility(View.INVISIBLE);
 
     }
 
-    public void saveClicked(View currView){
+    public void saveClicked(View currView) {
         Contact currentContact = new Contact();
 
         this.getUpdatedContactInfo(currentContact);
@@ -39,7 +39,7 @@ public class AddContactActivity extends Activity {
         finish();
     }
 
-    private void getUpdatedContactInfo(Contact currentContact){
+    private void getUpdatedContactInfo(Contact currentContact) {
 
         EditText editText = (EditText) this.findViewById(R.id.contactName);
         currentContact.setName(editText.getText().toString());
@@ -52,7 +52,10 @@ public class AddContactActivity extends Activity {
 
     }
 
-    public void backToDetailsClicked(View currView){
+    public void deleteClicked(View view) {
+    }
+
+    public void backToDetailsClicked(View currView) {
         Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
         getIntent().putExtra("contact", currentContact);
         setResult(RESULT_CANCELED, getIntent());

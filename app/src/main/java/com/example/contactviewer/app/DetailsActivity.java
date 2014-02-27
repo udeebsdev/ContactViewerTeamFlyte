@@ -24,24 +24,24 @@ public class DetailsActivity extends Activity {
         this.renderContactDetails();
     }
 
-    public void renderContactDetails(){
-        TextView headerView = (TextView)this.findViewById(R.id.header);
+    public void renderContactDetails() {
+        TextView headerView = (TextView) this.findViewById(R.id.header);
         headerView.setText(this.currentContact.name);
 
-        TextView nameView = (TextView)this.findViewById(R.id.contact_name);
+        TextView nameView = (TextView) this.findViewById(R.id.contact_name);
         nameView.setText(this.currentContact.name);
 
-        TextView aliasView = (TextView)this.findViewById(R.id.alias_label);
+        TextView aliasView = (TextView) this.findViewById(R.id.alias_label);
         aliasView.setText(this.currentContact.alias);
 
-        TextView businessView = (TextView)this.findViewById(R.id.business_view);
+        TextView businessView = (TextView) this.findViewById(R.id.business_view);
         businessView.setText(this.currentContact.business);
 
         if (this.currentContact.getPhone() != null) {
             Iterator<String> itr = this.currentContact.getPhone().keySet().iterator();
             if (itr.hasNext()) {
                 String key = itr.next();
-                TextView phoneView = (TextView)this.findViewById(R.id.phone_view);
+                TextView phoneView = (TextView) this.findViewById(R.id.phone_view);
                 phoneView.setText(String.format("%s (%s)", this.currentContact.getPhone().get(key), key));
             }
         }
@@ -50,22 +50,22 @@ public class DetailsActivity extends Activity {
             Iterator<String> itr = this.currentContact.getEmail().keySet().iterator();
             if (itr.hasNext()) {
                 String key = itr.next();
-                TextView emailView = (TextView)this.findViewById(R.id.email_view);
-                emailView.setText(String.format("%s (%s)",this.currentContact.getEmail().get(key), key));
+                TextView emailView = (TextView) this.findViewById(R.id.email_view);
+                emailView.setText(String.format("%s (%s)", this.currentContact.getEmail().get(key), key));
             }
-        } 
+        }
         if (this.currentContact.getAddresses() != null) {
             Iterator<String> itr = this.currentContact.getAddresses().keySet().iterator();
             if (itr.hasNext()) {
                 String key = itr.next();
-                TextView addressView = (TextView)this.findViewById(R.id.address_view);
-                Address address =this.currentContact.getAddresses().get(key);
-                addressView.setText(String.format("%s %s %s %s",address.getStreet(), address.getCity(), address.getState(), address.getZip()));
+                TextView addressView = (TextView) this.findViewById(R.id.address_view);
+                Address address = this.currentContact.getAddresses().get(key);
+                addressView.setText(String.format("%s %s %s %s", address.getStreet(), address.getCity(), address.getState(), address.getZip()));
             }
         }
     }
 
-    public void editClicked(View view){
+    public void editClicked(View view) {
 //        View rootView = view;
 //
 //        if(rootView == null){
@@ -82,7 +82,7 @@ public class DetailsActivity extends Activity {
 
         if (requestCode == 1) {
 
-            if(resultCode == RESULT_OK){
+            if (resultCode == RESULT_OK) {
                 this.currentContact = (Contact) data.getSerializableExtra("contact");
                 this.position = (Integer) data.getSerializableExtra("position");
                 this.renderContactDetails();

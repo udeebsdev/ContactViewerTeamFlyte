@@ -43,12 +43,14 @@ public class ContactRepository {
 
             Contact c = new Contact("Joseph Witthuhn", "Thomson Reuters");
             c.setAlias("Joe");
-            c.setPhone(new HashMap<String, String>(){{put("Home","555-555-1234");}});
-            c.setEmail(new HashMap<String, String>(){{
+            c.setPhone(new HashMap<String, String>() {{
+                put("Home", "555-555-1234");
+            }});
+            c.setEmail(new HashMap<String, String>() {{
                 put("Personal", "joewitthun@gmail.com");
             }});
             c.setAddresses(new HashMap<String, Address>() {{
-                put("Business", new Address("610 Opperman Drive","Eagan","MN","55123"));
+                put("Business", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
             }});
             contacts.add(c);
 
@@ -56,23 +58,27 @@ public class ContactRepository {
             contacts.add(c);
 
             c = new Contact("Udeeb Shankhadev", "Thomson Reuters");
-            c.setPhone(new HashMap<String, String>(){{put("Home","651-555-1234");}});
-            c.setEmail(new HashMap<String, String>(){{
+            c.setPhone(new HashMap<String, String>() {{
+                put("Home", "651-555-1234");
+            }});
+            c.setEmail(new HashMap<String, String>() {{
                 put("Personal", "udeebshankhadev@gmail.com");
             }});
             c.setAddresses(new HashMap<String, Address>() {{
-                put("Personal", new Address("610 Opperman Drive","Eagan","MN","55123"));
+                put("Personal", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
             }});
             contacts.add(c);
 
             c = new Contact("Prabina Shrestha", "Thomson Reuters");
             c.setAlias("Prabs");
-            c.setPhone(new HashMap<String, String>(){{put("Home","651-313-1234");}});
+            c.setPhone(new HashMap<String, String>() {{
+                put("Home", "651-313-1234");
+            }});
             c.setEmail(new HashMap<String, String>() {{
                 put("Personal", "prabinashrestha@gmail.com");
             }});
             c.setAddresses(new HashMap<String, Address>() {{
-                put("Personal", new Address("610 Opperman Drive","Eagan","MN","55123"));
+                put("Personal", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
             }});
             contacts.add(c);
 

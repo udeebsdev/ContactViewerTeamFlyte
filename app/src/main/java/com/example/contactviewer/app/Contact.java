@@ -1,9 +1,7 @@
 package com.example.contactviewer.app;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 public class Contact implements Serializable, Comparable<Contact> {
     String name;
@@ -66,6 +64,7 @@ public class Contact implements Serializable, Comparable<Contact> {
     public void setAddresses(HashMap<String, Address> addresses) {
         this.addresses = addresses;
     }
+
     public HashMap<String, String> getEmail() {
         return email;
     }
