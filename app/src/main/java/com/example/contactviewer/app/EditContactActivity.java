@@ -24,7 +24,7 @@ public class EditContactActivity extends Activity {
 
     }
 
-    public void renderEditContactView(Contact currentContact){
+    public void renderEditContactView(Contact currentContact) {
         EditText editText = (EditText) this.findViewById(R.id.contactName);
         editText.setText(currentContact.name);
 
@@ -35,7 +35,7 @@ public class EditContactActivity extends Activity {
         businessText.setText(currentContact.business);
     }
 
-    private void getUpdatedContactInfo(Contact currentContact){
+    private void getUpdatedContactInfo(Contact currentContact) {
 
         EditText editText = (EditText) this.findViewById(R.id.contactName);
         currentContact.setName(editText.getText().toString());
@@ -48,7 +48,7 @@ public class EditContactActivity extends Activity {
 
     }
 
-    public void saveClicked(View currView){
+    public void saveClicked(View currView) {
         Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
 
         this.getUpdatedContactInfo(currentContact);
@@ -63,18 +63,16 @@ public class EditContactActivity extends Activity {
     }
 
     public void deleteClicked(View view) {
-        Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
-
         List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
-        contactList.remove(position);
+        Contact contactToBeDeleted = contactList.get(position);
+        contactList.remove(contactToBeDeleted);
         ContactRepository.saveContacts(getApplicationContext());
 
-        getIntent().putExtra("contact", currentContact);
-        setResult(RESULT_OK, getIntent());
-        finish();
+        getIntent().setClass(this, MainActivity.class);
+        startActivityForResult(getIntent(), 1);
     }
 
-    public void backToDetailsClicked(View currView){
+    public void backToDetailsClicked(View currView) {
         Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
         getIntent().putExtra("contact", currentContact);
         setResult(RESULT_CANCELED, getIntent());
