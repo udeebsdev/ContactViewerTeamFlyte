@@ -33,7 +33,7 @@ public class Contact implements Serializable{
         return new Contact[]{
                 new Contact("Howard", "Soft. Eng."),
                 new Contact("Tim", "Sr. Soft. Eng."),
-                new Contact("Matt", "Lead Soft. Eng.")};
+                new Contact("Matthew", "Lead Soft. Eng.")};
     }
     public String getName() {
         return name;
