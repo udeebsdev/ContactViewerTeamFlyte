@@ -69,7 +69,7 @@
                 android:background="#00FFFF"
                 />
             <TextView
-                android:id="@+id/firstname_label_view"
+                android:id="@+id/name_label_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/contact_image"
@@ -77,12 +77,12 @@
                 android:text="Name"
                 />
             <EditText
-                android:id="@+id/firstname"
+                android:id="@+id/contactName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/firstname_label_view"
+                android:layout_below="@id/name_label_view"
                 android:layout_toRightOf="@id/contact_image"
-                android:text="@string/firstname"
+                android:text=""
                 android:hint="Name"
                 />
             <TextView
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/contact_image"
-                android:layout_below="@id/firstname"
+                android:layout_below="@id/contactName"
                 android:text="@string/alias_label"
                 android:layout_marginTop="10dp"
                 />
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/alias_label_view"
                 android:layout_toRightOf="@id/contact_image"
-                android:text="@string/alias"
+                android:text=""
                 android:hint="@string/alias_hint"
                 />
 

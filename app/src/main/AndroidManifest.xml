@@ -24,6 +24,10 @@
             android:name="com.example.contactviewer.app.EditContactActivity"
             android:label="@string/title_activity_edit_contact" >
         </activity>
+        <activity
+            android:name="com.example.contactviewer.app.AddContactActivity"
+            android:label="@string/title_activity_add_contact" >
+        </activity>
     </application>
 
 </manifest>

@@ -24,6 +24,9 @@ public class Contact implements Serializable, Comparable<Contact> {
         this.business = business;
     }
 
+    public Contact() {
+    }
+
     public String getName() {
         return name;
     }

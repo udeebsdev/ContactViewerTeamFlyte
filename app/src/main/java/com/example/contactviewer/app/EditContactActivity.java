@@ -3,14 +3,9 @@ package com.example.contactviewer.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class EditContactActivity extends Activity {
@@ -30,7 +25,7 @@ public class EditContactActivity extends Activity {
     }
 
     public void renderEditContactView(Contact currentContact){
-        EditText editText = (EditText) this.findViewById(R.id.firstname);
+        EditText editText = (EditText) this.findViewById(R.id.contactName);
         editText.setText(currentContact.name);
 
         EditText aliasText = (EditText) this.findViewById(R.id.alias);
@@ -38,6 +33,19 @@ public class EditContactActivity extends Activity {
 
         EditText businessText = (EditText) this.findViewById(R.id.business_edit);
         businessText.setText(currentContact.business);
+    }
+
+    private void getUpdatedContactInfo(Contact currentContact){
+
+        EditText editText = (EditText) this.findViewById(R.id.contactName);
+        currentContact.setName(editText.getText().toString());
+
+        EditText aliasText = (EditText) this.findViewById(R.id.alias);
+        currentContact.setAlias(aliasText.getText().toString());
+
+        EditText businessText = (EditText) this.findViewById(R.id.business_edit);
+        currentContact.setBusiness(businessText.getText().toString());
+
     }
 
     public void saveClicked(View currView){
@@ -54,17 +62,16 @@ public class EditContactActivity extends Activity {
         finish();
     }
 
-    private void getUpdatedContactInfo(Contact currentContact){
+    public void deleteClicked(View view){
+        Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
 
-        EditText editText = (EditText) this.findViewById(R.id.firstname);
-        currentContact.setName(editText.getText().toString());
+        List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
+        contactList.remove(position);
+        ContactRepository.saveContacts(getApplicationContext());
 
-        EditText aliasText = (EditText) this.findViewById(R.id.alias);
-        currentContact.setAlias(aliasText.getText().toString());
-
-        EditText businessText = (EditText) this.findViewById(R.id.business_edit);
-        currentContact.setBusiness(businessText.getText().toString());
-
+        getIntent().putExtra("contact", currentContact);
+        setResult(RESULT_OK, getIntent());
+        finish();
     }
 
     public void backToDetailsClicked(View currView){

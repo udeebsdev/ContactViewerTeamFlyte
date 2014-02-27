@@ -90,5 +90,6 @@
     </string-array>
 
     <string name="title_activity_details">DetailsActivity</string>
+    <string name="title_activity_add_contact">AddContactActivity</string>
 
 </resources>

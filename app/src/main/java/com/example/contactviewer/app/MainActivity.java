@@ -44,6 +44,11 @@ public class MainActivity extends ListActivity {
         }
     }
 
+    public void addNewContactClicked(View view){
+        Intent intent = new Intent(this, AddContactActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
     class ContactAdapter extends ArrayAdapter<Contact> {
 
         public ContactAdapter(Context context, int resource, List<Contact> objects) {
