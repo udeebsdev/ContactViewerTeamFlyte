@@ -206,24 +206,13 @@
                 android:entries="@array/address_type"
                 android:gravity="center"
                 />
-            <EditText
-                android:id="@+id/address2_edit"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:layout_below="@id/address1_edit"
-                android:layout_marginBottom="16dp"
-                android:inputType="textPostalAddress"
-                android:gravity="center"
-                android:hint="@string/address_line_2"
-                />
 
             <EditText
                 android:id="@+id/address_city_edit"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:layout_below="@id/address2_edit"
+                android:layout_below="@id/address1_edit"
                 android:layout_marginBottom="16dp"
                 android:inputType="textPostalAddress"
                 android:gravity="center"
@@ -235,7 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_toRightOf="@id/address_city_edit"
-                android:layout_below="@id/address2_edit"
+                android:layout_below="@id/address1_edit"
                 android:entries="@array/states"
                 android:gravity="center"
                 />

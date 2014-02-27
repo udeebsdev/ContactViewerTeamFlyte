@@ -104,7 +104,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/business_view"
-                android:text="@string/business"
+                android:text=""
                 android:layout_below="@id/business_label_view"
                 />
             <TextView
@@ -116,7 +116,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/phone_view"
-                android:text="@string/phone"
+                android:text=""
                 android:layout_below="@id/phone_label_view"
                 />
             <TextView
@@ -128,7 +128,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/email_view"
-                android:text="@string/email"
+                android:text=""
                 android:layout_below="@id/email_label_view"
                 />
             <TextView
@@ -140,7 +140,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/address_view"
-                android:text="@string/address"
+                android:text=""
                 android:layout_below="@id/address_label_view"
                 />
             <TextView
@@ -152,7 +152,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/url_view"
-                android:text="@string/url"
+                android:text=""
                 android:layout_below="@id/url_label_view"
                 />
             <TextView
@@ -164,7 +164,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/im_view"
-                android:text="@string/im"
+                android:text=""
                 android:layout_below="@id/im_label_view"
                 />
             <TextView
@@ -176,7 +176,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/dob_view"
-                android:text="@string/dob"
+                android:text=""
                 android:layout_below="@id/dob_label_view"
                 />
             <TextView
@@ -188,7 +188,7 @@
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/groups_view"
-                android:text="@string/groups"
+                android:text=""
                 android:layout_below="@id/groups_label_view"
                 />
             <TextView

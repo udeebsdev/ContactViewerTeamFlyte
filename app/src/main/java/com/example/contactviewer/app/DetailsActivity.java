@@ -60,7 +60,7 @@ public class DetailsActivity extends Activity {
                 String key = itr.next();
                 TextView addressView = (TextView) this.findViewById(R.id.address_view);
                 Address address = this.currentContact.getAddresses().get(key);
-                addressView.setText(String.format("%s %s %s %s", address.getStreet(), address.getCity(), address.getState(), address.getZip()));
+                addressView.setText(String.format("%s %s %s %s (%s)", address.getStreet(), address.getCity(), address.getState(), address.getZip(), key));
             }
         }
     }
