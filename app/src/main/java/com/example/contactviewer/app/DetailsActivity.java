@@ -2,6 +2,7 @@ package com.example.contactviewer.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -88,6 +89,37 @@ public class DetailsActivity extends Activity {
                 this.renderContactDetails();
 
                 setResult(RESULT_OK, data);
+            }
+        }
+    }
+
+    public void backToMainClicked(View view) {
+        Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
+        getIntent().putExtra("contact", currentContact);
+        setResult(RESULT_OK, getIntent());
+        finish();
+    }
+
+    public void launchPhone(View view) {
+        if (this.currentContact.getPhone() != null) {
+            Iterator<String> itr = this.currentContact.getPhone().keySet().iterator();
+            if (itr.hasNext()) {
+                String key = itr.next();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+this.currentContact.getPhone().get(key)));
+                startActivity(intent);
+            }
+        }
+    }
+
+    public void launchMessage(View view) {
+        if (this.currentContact.getPhone() != null) {
+            Iterator<String> itr = this.currentContact.getPhone().keySet().iterator();
+            if (itr.hasNext()) {
+                String key = itr.next();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("sms:"+this.currentContact.getPhone().get(key)));
+                startActivity(intent);
             }
         }
     }

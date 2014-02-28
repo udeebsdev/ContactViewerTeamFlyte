@@ -44,10 +44,10 @@ public class ContactRepository {
             Contact c = new Contact("Joseph Witthuhn", "Thomson Reuters");
             c.setAlias("Joe");
             c.setPhone(new HashMap<String, String>() {{
-                put("Home", "555-555-1234");
+                put("Home", "651-555-1234");
             }});
             c.setEmail(new HashMap<String, String>() {{
-                put("Personal", "joewitthun@gmail.com");
+                put("Business", "joewitthun@thomsonreuters.com");
             }});
             c.setAddresses(new HashMap<String, Address>() {{
                 put("Business", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
@@ -55,34 +55,54 @@ public class ContactRepository {
             contacts.add(c);
 
             c = new Contact("Prapti Shrestha", "Vaddio");
+            c.setAlias("Prapti");
+            c.setPhone(new HashMap<String, String>() {{
+                put("Home", "651-313-1234");
+            }});
+            c.setEmail(new HashMap<String, String>() {{
+                put("Personal", "praptishrestha@gmail.com");
+            }});
+            c.setAddresses(new HashMap<String, Address>() {{
+                put("Personal", new Address("", "Eagan", "MN", "55123"));
+            }});
             contacts.add(c);
 
             c = new Contact("Udeeb Shankhadev", "Thomson Reuters");
             c.setPhone(new HashMap<String, String>() {{
-                put("Home", "651-555-1234");
+                put("Home", "651-208-1234");
             }});
             c.setEmail(new HashMap<String, String>() {{
                 put("Personal", "udeebshankhadev@gmail.com");
             }});
             c.setAddresses(new HashMap<String, Address>() {{
-                put("Personal", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
+                put("Business", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
             }});
             contacts.add(c);
 
             c = new Contact("Prabina Shrestha", "Thomson Reuters");
             c.setAlias("Prabs");
             c.setPhone(new HashMap<String, String>() {{
-                put("Home", "651-313-1234");
+                put("Home", "651-313-4343");
             }});
             c.setEmail(new HashMap<String, String>() {{
                 put("Personal", "prabinashrestha@gmail.com");
             }});
             c.setAddresses(new HashMap<String, Address>() {{
-                put("Personal", new Address("610 Opperman Drive", "Eagan", "MN", "55123"));
+                put("Personal", new Address("", "Eagan", "MN", "55123"));
             }});
             contacts.add(c);
 
             c = new Contact("Gregory Jensen", "Best Buy");
+            c.setAlias("Greg");
+            c.setPhone(new HashMap<String, String>() {{
+                put("Home", "651-222-4343");
+            }});
+            c.setEmail(new HashMap<String, String>() {{
+                put("Personal", "gjensen@gmail.com");
+            }});
+            c.setAddresses(new HashMap<String, Address>() {{
+                put("Personal", new Address("", "Apple Valley", "MN", ""));
+            }});
             contacts.add(c);
         }
 

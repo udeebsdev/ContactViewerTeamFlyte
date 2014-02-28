@@ -10,12 +10,6 @@ public class Contact implements Serializable, Comparable<Contact> {
     HashMap<String, String> phone;
     HashMap<String, Address> addresses;
     HashMap<String, String> email;
-//    HashMap<String, String> handle;
-//    HashMap<String, String> url;
-//    List<String> groups;
-//    Date dob;
-//    String filename;
-//    String ringtone;
 
     public Contact(String name, String business) {
         this.name = name;
@@ -73,55 +67,6 @@ public class Contact implements Serializable, Comparable<Contact> {
         this.email = email;
     }
 
-    /*public HashMap<String, String> getHandle() {
-        return handle;
-    }
-
-    public void setHandle(HashMap<String, String> handle) {
-        this.handle = handle;
-    }
-
-
-    public HashMap<String, String> getUrl() {
-        return url;
-    }
-
-    public void setUrl(HashMap<String, String> url) {
-        this.url = url;
-    }
-
-    public List<String> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<String> groups) {
-        this.groups = groups;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public String getRingtone() {
-        return ringtone;
-    }
-
-    public void setRingtone(String ringtone) {
-        this.ringtone = ringtone;
-    }
-*/
     @Override
     public int compareTo(Contact contact) {
         if (name == null && contact.name == null) {

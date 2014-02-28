@@ -8,7 +8,6 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.contactviewer.app.DetailsActivity">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -17,15 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/header"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:textSize="28sp"
-                android:text="@string/contact_header"
-                android:textStyle="bold"
-                />
+                android:text="Back"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="8dp"
+                android:onClick="backToMainClicked" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -35,45 +34,55 @@
                 android:onClick="editClicked"
                 android:layout_gravity="right"
                 android:layout_alignParentTop="true"
-                android:layout_alignRight="@id/header"
-                />
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:textSize="28sp"
+                android:text="@string/contact_header"
+                android:layout_below="@id/back_button"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/contact_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="16dp"
                 android:layout_margin="8dp"
                 android:layout_below="@id/header"
                 android:src="@drawable/contact"
-                android:background="#00FFFF"
-                />
+                android:background="#00FFFF" />
+
             <ImageView
                 android:id="@+id/call_button"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_toRightOf="@id/contact_image"
                 android:layout_below="@id/header"
                 android:layout_margin="8dp"
                 android:layout_marginBottom="20dp"
                 android:scaleType="center"
                 android:src="@drawable/phone"
-                android:onClick="launchPhone"
-                />
+                android:onClick="launchPhone" />
+
             <ImageView
                 android:id="@+id/msg_button"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_toRightOf="@id/call_button"
                 android:layout_below="@id/header"
                 android:layout_margin="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="20dp"
                 android:scaleType="fitCenter"
+                android:layout_alignParentRight="true"
                 android:src="@drawable/msg"
-                android:onClick="launchMessage"
-                />
+                android:onClick="launchMessage" />
+
             <TextView
                 android:id="@+id/alias_label"
                 android:layout_width="wrap_content"
@@ -82,8 +91,8 @@
                 android:layout_below="@id/call_button"
                 android:layout_margin="16dp"
                 android:text="@string/alias"
-                android:textStyle="italic"
-                />
+                android:textStyle="italic" />
+
             <TextView
                 android:id="@+id/contact_name"
                 android:layout_width="240dp"
@@ -93,117 +102,57 @@
                 android:layout_marginTop="16dp"
                 android:layout_below="@id/alias_label"
                 android:textSize="18sp"
-                android:text="@string/contact"
-                />
+                android:text="@string/contact" />
+
             <TextView
                 style="@style/DetailsLabelsText"
                 android:id="@+id/business_label_view"
                 android:text="@string/business_label"
-                android:layout_below="@id/contact_image"
-                />
+                android:layout_below="@id/contact_image" />
+
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/business_view"
                 android:text=""
-                android:layout_below="@id/business_label_view"
-                />
+                android:layout_below="@id/business_label_view" />
+
             <TextView
                 style="@style/DetailsLabelsText"
                 android:id="@+id/phone_label_view"
                 android:text="@string/phone_label"
-                android:layout_below="@id/business_view"
-                />
+                android:layout_below="@id/business_view" />
+
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/phone_view"
                 android:text=""
-                android:layout_below="@id/phone_label_view"
-                />
+                android:layout_below="@id/phone_label_view" />
+
             <TextView
                 style="@style/DetailsLabelsText"
                 android:id="@+id/email_label_view"
                 android:text="@string/email_label"
-                android:layout_below="@id/phone_view"
-                />
+                android:layout_below="@id/phone_view" />
+
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/email_view"
                 android:text=""
-                android:layout_below="@id/email_label_view"
-                />
+                android:layout_below="@id/email_label_view" />
+
             <TextView
                 style="@style/DetailsLabelsText"
                 android:id="@+id/address_label_view"
                 android:text="@string/address_label"
-                android:layout_below="@id/email_view"
-                />
+                android:layout_below="@id/email_view" />
+
             <TextView
                 style="@style/DetailsText"
                 android:id="@+id/address_view"
                 android:text=""
-                android:layout_below="@id/address_label_view"
-                />
-            <TextView
-                style="@style/DetailsLabelsText"
-                android:id="@+id/url_label_view"
-                android:text="@string/url_label"
-                android:layout_below="@id/address_view"
-                />
-            <TextView
-                style="@style/DetailsText"
-                android:id="@+id/url_view"
-                android:text=""
-                android:layout_below="@id/url_label_view"
-                />
-            <TextView
-                style="@style/DetailsLabelsText"
-                android:id="@+id/im_label_view"
-                android:text="@string/im_label"
-                android:layout_below="@id/url_view"
-                />
-            <TextView
-                style="@style/DetailsText"
-                android:id="@+id/im_view"
-                android:text=""
-                android:layout_below="@id/im_label_view"
-                />
-            <TextView
-                style="@style/DetailsLabelsText"
-                android:id="@+id/dob_label_view"
-                android:text="@string/dob_label"
-                android:layout_below="@id/im_view"
-                />
-            <TextView
-                style="@style/DetailsText"
-                android:id="@+id/dob_view"
-                android:text=""
-                android:layout_below="@id/dob_label_view"
-                />
-            <TextView
-                style="@style/DetailsLabelsText"
-                android:id="@+id/groups_label_view"
-                android:text="@string/groups_label"
-                android:layout_below="@id/dob_view"
-                />
-            <TextView
-                style="@style/DetailsText"
-                android:id="@+id/groups_view"
-                android:text=""
-                android:layout_below="@id/groups_label_view"
-                />
-            <TextView
-                style="@style/DetailsLabelsText"
-                android:id="@+id/ringtone_label_view"
-                android:text="@string/ringtone_label"
-                android:layout_below="@id/groups_view"
-                />
-            <TextView
-                style="@style/DetailsText"
-                android:id="@+id/ringtone_view"
-                android:text="@string/ringtone"
-                android:layout_below="@id/ringtone_label_view"
-                />
+                android:layout_below="@id/address_label_view" />
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>
+
+
