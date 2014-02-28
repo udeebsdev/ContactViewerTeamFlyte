@@ -158,6 +158,7 @@ public class EditContactActivity extends Activity {
         ContactRepository.saveContacts(getApplicationContext());
 
         getIntent().setClass(this, MainActivity.class);
+        getIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivityForResult(getIntent(), 1);
     }
 
