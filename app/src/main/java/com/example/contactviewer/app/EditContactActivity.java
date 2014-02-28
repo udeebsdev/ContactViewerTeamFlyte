@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class EditContactActivity extends Activity {
 
     }
 
-    public void renderEditContactView(Contact currentContact){
+    public void renderEditContactView(Contact currentContact) {
         EditText editText = (EditText) this.findViewById(R.id.contactName);
         editText.setText(currentContact.name);
 
@@ -88,7 +89,7 @@ public class EditContactActivity extends Activity {
 
     }
 
-    private void getUpdatedContactInfo(Contact currentContact){
+    private void getUpdatedContactInfo(Contact currentContact) {
 
         EditText editText = (EditText) this.findViewById(R.id.contactName);
         currentContact.setName(editText.getText().toString());
@@ -101,12 +102,22 @@ public class EditContactActivity extends Activity {
 
         final EditText phoneText = (EditText) this.findViewById(R.id.phone_edit);
         final Spinner phoneOptions = (Spinner) this.findViewById(R.id.phone_spinner);
-        currentContact.getPhone().clear();
+        if (currentContact.getPhone() == null) {
+            currentContact.setPhone(new HashMap<String, String>());
+        } else {
+
+            currentContact.getPhone().clear();
+        }
         currentContact.getPhone().put(phoneOptions.getSelectedItem().toString(), phoneText.getText().toString());
 
         final EditText emailText = (EditText) this.findViewById(R.id.email_edit);
         final Spinner emailOptions = (Spinner) this.findViewById(R.id.email_spinner);
-        currentContact.getEmail().clear();
+        if (currentContact.getEmail() == null) {
+            currentContact.setEmail(new HashMap<String, String>());
+        } else {
+
+            currentContact.getEmail().clear();
+        }
         currentContact.getEmail().put(emailOptions.getSelectedItem().toString(), emailText.getText().toString());
 
         final EditText streetText = (EditText) this.findViewById(R.id.address1_edit);
@@ -114,7 +125,12 @@ public class EditContactActivity extends Activity {
         final EditText zipText = (EditText) this.findViewById(R.id.zip_code_edit);
         final Spinner stateOptions = (Spinner) this.findViewById(R.id.state_spinner);
         final Spinner addressOptions = (Spinner) this.findViewById(R.id.address_spinner);
-        currentContact.getAddresses().clear();
+        if (currentContact.getAddresses() == null) {
+            currentContact.setAddresses(new HashMap<String, Address>());
+        } else {
+
+            currentContact.getAddresses().clear();
+        }
         currentContact.getAddresses().put(addressOptions.getSelectedItem().toString(), new Address(streetText.getText().toString(), cityText.getText().toString(), stateOptions.getSelectedItem().toString(), zipText.getText().toString()));
     }
 
