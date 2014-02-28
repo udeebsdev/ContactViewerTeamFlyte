@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Iterator;
 import java.util.List;
@@ -121,14 +122,17 @@ public class EditContactActivity extends Activity {
         Contact currentContact = (Contact) getIntent().getSerializableExtra("contact");
 
         this.getUpdatedContactInfo(currentContact);
+        if (null != currentContact.getName() && !currentContact.getName().trim().isEmpty()) {
+            List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
+            contactList.set(position, currentContact);
+            ContactRepository.saveContacts(getApplicationContext());
 
-        List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
-        contactList.set(position, currentContact);
-        ContactRepository.saveContacts(getApplicationContext());
-
-        getIntent().putExtra("contact", currentContact);
-        setResult(RESULT_OK, getIntent());
-        finish();
+            getIntent().putExtra("contact", currentContact);
+            setResult(RESULT_OK, getIntent());
+            finish();
+        } else {
+            Toast.makeText(this, "Please enter a name to update the contact", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void deleteClicked(View view) {

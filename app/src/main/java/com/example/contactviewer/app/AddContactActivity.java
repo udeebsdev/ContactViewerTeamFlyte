@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,16 +30,20 @@ public class AddContactActivity extends Activity {
 
     public void saveClicked(View currView) {
         Contact currentContact = new Contact();
-
         this.getUpdatedContactInfo(currentContact);
+        if (null!= currentContact.getName() && !currentContact.getName().trim().isEmpty()) {
 
-        List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
-        contactList.add(currentContact);
-        ContactRepository.saveContacts(getApplicationContext());
+            List<Contact> contactList = ContactRepository.getContacts(getApplicationContext());
+            contactList.add(currentContact);
+            ContactRepository.saveContacts(getApplicationContext());
 
-        getIntent().putExtra("contact", currentContact);
-        setResult(RESULT_OK, getIntent());
-        finish();
+            getIntent().putExtra("contact", currentContact);
+            setResult(RESULT_OK, getIntent());
+            finish();
+        } else {
+            Toast.makeText(this,"Please enter a name to create a contact", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     private void getUpdatedContactInfo(Contact currentContact){
